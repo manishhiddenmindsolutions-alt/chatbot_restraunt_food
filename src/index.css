@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-mono: 'Space Grotesk', monospace;
+
+  /* Premium Restaurant Light Theme Color Palette */
+  --bg-primary: #faf9f6;       /* Warm linen cream ivory background */
+  --bg-secondary: #ffffff;     /* Crisp clean white card panels */
+  --bg-tertiary: #f1ede6;      /* Soft warm linen highlighting grey */
+  --text-primary: #1f1b18;     /* Deep readable charcoal black */
+  --text-secondary: #5c534a;   /* Warm taupe descriptive grey */
+  --text-muted: #8e867b;       /* Soft sub-headers */
+  
+  /* Gourmet Culinary Accents */
+  --accent-orange: #ea580c;     /* Vibrant Artisan Orange */
+  --accent-gold: #b45309;       /* Rich Amber Gold */
+  --accent-gold-glow: rgba(180, 83, 9, 0.08);
+  --accent-emerald: #16a34a;    /* Fresh / Vegetarian Green */
+  --accent-rose: #dc2626;       /* Chef Spicy Red */
+  --accent-amber: #d97706;
+  
+  /* Modern Soft Card Shadows */
+  --glass-bg: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(234, 88, 12, 0.12); /* Subtle orange border glow */
+  --glass-shadow: rgba(92, 83, 74, 0.08);
+  
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+  --radius-full: 9999px;
+  
+  --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e5e1d8;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-orange);
+}
+
+/* Bistro Card Panel Style */
+.glass-panel {
+  background: var(--bg-secondary);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 12px 30px -6px var(--glass-shadow);
+  border-radius: var(--radius-md);
+  transition: var(--transition-smooth);
+  will-change: transform, box-shadow, border-color;
+}
+
+.glass-panel:hover {
+  transform: translateY(-5px);
+  border-color: rgba(234, 88, 12, 0.3);
+  box-shadow: 0 20px 40px -10px rgba(92, 83, 74, 0.18), 0 6px 20px -8px rgba(234, 88, 12, 0.22);
+}
+
+/* Gradients */
+.text-gradient-orange {
+  background: linear-gradient(135deg, var(--accent-orange), var(--accent-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, var(--accent-gold), #d97706);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(234, 88, 12, 0.12);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(234, 88, 12, 0.28);
+  }
+}
+
+@keyframes typing {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes bounceLeftRight {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-6px); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.pulse-active {
+  animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-slide-in {
+  animation: fadeSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Chat text formats */
+.message-markdown h1,
+.message-markdown h2,
+.message-markdown h3 {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.message-markdown h3 {
+  font-size: 1.1rem;
+}
+
+.message-markdown p {
+  margin-bottom: 8px;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.message-markdown p:last-child {
+  margin-bottom: 0;
+}
+
+.message-markdown ul,
+.message-markdown ol {
+  margin-left: 20px;
+  margin-bottom: 8px;
+}
+
+.message-markdown li {
+  margin-bottom: 4px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.message-markdown strong {
+  color: var(--accent-orange);
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-orange), var(--accent-gold));
+  color: #ffffff;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  transition: var(--transition-smooth);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(234, 88, 12, 0.25);
+}
+
+.btn-secondary {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1.5px solid var(--glass-border);
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  transition: var(--transition-smooth);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--accent-orange);
+}
+
+/* Custom Scrollbar for horizontal slider in chat */
+.horizontal-scroll {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding: 10px 4px 14px 4px;
+  margin-top: 8px;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-full);
+}
+
+/* Mobile Responsive Adjustments & Fluid Layouts */
+@media (max-width: 768px) {
+  .support-desk-indicator {
+    display: none !important;
+  }
+  
+  /* Make main section paddings fluid and smaller for mobile screens */
+  section {
+    padding: 32px 16px !important;
+  }
+  
+  .glass-panel {
+    padding: 24px !important; /* Decrease large padding on mobile */
+  }
+}
+
+@media (max-width: 640px) {
+  .chat-widget-panel {
+    bottom: 0 !important;
+    right: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    height: -webkit-fill-available !important;
+    border-radius: 0 !important;
+    border: none !important;
+  }
+  
+  .chat-suggestion-pill {
+    display: none !important;
+  }
+  
+  .chat-toggle-container {
+    bottom: 16px !important;
+    right: 16px !important;
+  }
+  
+  section {
+    padding: 24px 12px !important;
+  }
+
+  /* Compact Header status items on mobile */
+  .status-text, .verified-text {
+    display: none !important;
+  }
+  .ai-status-indicator, .verified-badge-indicator {
+    padding: 8px !important;
+    gap: 0 !important;
+    border-radius: 50% !important;
+    width: 36px;
+    height: 36px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Keep AI status active pulse, just simplified as a small dot indicator */
+  .ai-status-indicator {
+    border: none !important;
+    background: transparent !important;
+    width: 20px;
+    height: 20px;
+    padding: 0 !important;
+  }
+  
+  /* Touch devices smooth scroll momentum */
+  .horizontal-scroll {
+    -webkit-overflow-scrolling: touch;
+  }
+}
